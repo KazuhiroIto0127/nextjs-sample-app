@@ -3,6 +3,7 @@ import Image from 'next/image';
 import styles from './layout.module.css';
 import utilStyles from '../styles/utils.module.css';
 import Link from 'next/link';
+import HelloWorld from '../components/HelloWorld'
 
 const name = 'Kazuhiro Ito';
 export const siteTitle = 'Next.js Sample Website';
