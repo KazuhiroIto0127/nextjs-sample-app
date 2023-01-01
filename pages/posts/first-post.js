@@ -1,9 +1,7 @@
 import Head from 'next/head'
 import Alert from '../../components/Alert.js'
-import Link from 'next/link'
-import Image from 'next/image'
 import Script from 'next/script'
-import Layout from '../../components/layout.js'
+import Layout from '../../components/layout'
 
 export default function FirstPost() {
   return (
@@ -16,7 +14,7 @@ export default function FirstPost() {
         src="https://connect.facebook.net/en_US/sdk.js"
         strategy="lazyOnload"
         onLoad={() =>
-          console.log(`script loaded correctly, window. FB has been populated`)
+          console.log("script loaded correctly, window. FB has been populated")
         }
       />
       <h1>First Post</h1>
