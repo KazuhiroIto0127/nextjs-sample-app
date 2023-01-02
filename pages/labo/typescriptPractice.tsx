@@ -3,6 +3,7 @@ import { User } from "../../models/User";
 import UserCard from "../../components/UserCard";
 import { useEffect, useState, useMemo } from "react";
 import Layout from "../../components/layout";
+import { AnimatePresence, motion } from "framer-motion"
 
 export default function randomEmojiChallenge() {
   const [emojiArray, setEmojiArray] = useState<string[]>(['🌹','🐶','🐱'])
@@ -33,7 +34,10 @@ export default function randomEmojiChallenge() {
         return pre + 1
     });
     setUsers((pre)=>{
-        return [...pre, new User(userTotal, selectedEmoji, name, old)]
+      const newArray = [...pre];
+      newArray.unshift(new User(userTotal, selectedEmoji, name, old));
+      return newArray;
+        // return [...pre, new User(userTotal, selectedEmoji, name, old)]
     })
   }
   return (
@@ -78,11 +82,18 @@ export default function randomEmojiChallenge() {
         User追加
       </button>
       <div className="grid grid-cols-auto-fit gap-4">
-        { users.map((user) => (
-            <div key={user.id}>
-                <UserCard user={user} />
-            </div>
-        ))}
+        <AnimatePresence mode="popLayout">
+          { users.map((user, index) => (
+              <motion.div key={user.id}
+                          layout
+                          initial={{ opacity: 0, translateX: -50, translateY: -50 }}
+                          animate={{ opacity: 1, translateX: 0, translateY: 0 }}
+                          transition={{ duration:0.3, type: "spring" }}
+              >
+                  <UserCard user={user} />
+              </motion.div>
+          ))}
+        </AnimatePresence>
       </div>
     </Layout>
   );
