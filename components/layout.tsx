@@ -1,16 +1,16 @@
 import Head from 'next/head';
-import Image from 'next/image';
 import styles from './layout.module.css';
 import utilStyles from '../styles/utils.module.css';
 import Link from 'next/link';
 import React from 'react';
+import Header from './Header'
+import Footer from './Footer'
 
-const name = 'Kazuhiro Ito';
 export const siteTitle = 'Next.js Sample Website';
 
 export default function Layout({ children, home }: { children: React.ReactNode, home?: boolean}) {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center py-2">
+    <>
       <Head>
         <link rel="icon" href="/favicon.ico" />
         <meta
@@ -26,47 +26,14 @@ export default function Layout({ children, home }: { children: React.ReactNode, 
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
-      <header className={styles.header}>
-        {home ? (
-          <>
-            <Image
-              priority
-              src="/images/profile.png"
-              className={utilStyles.borderCircle}
-              height={144}
-              width={144}
-              alt="Your name"
-            />
-            <h1 className={utilStyles.heading2Xl}>{name}</h1>
-          </>
-        ) : (
-          <>
-            <Link href="/">
-              <Image
-                priority
-                src="/images/profile.png"
-                className={utilStyles.borderCircle}
-                height={108}
-                width={108}
-                alt=""
-              />
-            </Link>
-            <h2 className={utilStyles.headingLg}>
-              <Link href="/" className="text-xl text-blue-500">
-                {name}
-              </Link>
-            </h2>
-          </>
-        )}
-      </header>
-      <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
-        {children}
-      </main>
-      {!home && (
-        <div className={styles.backToHome}>
-          <Link href="/" className="text-xl text-blue-500">Back to home</Link>
-        </div>
-      )}
-    </div>
+
+      <div className="p-3">
+        <Header />
+        <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
+          {children}
+        </main>
+        <Footer />
+      </div>
+    </>
   )
 }
