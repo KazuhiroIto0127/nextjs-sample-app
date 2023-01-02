@@ -14,7 +14,7 @@ export default function randomEmojiChallenge() {
   const [emojiStack, setEmojiStack] = useState<string[][]>([]);
   const [gameClear, setGameClear] = useState(false)
   const [challengeResults, setChallengeResults] = useState<boolean[]>([])
-  const { reward, isAnimating } = useReward('rewardId', 'confetti', { "lifetime": 1000, "elementCount": 500 });
+  const { reward, isAnimating } = useReward('rewardId', 'confetti', { "lifetime": 1000, "elementCount": 100 });
 
   const buttonText = useMemo(() => {
     return gameClear === false ? `${challengeTotalNum+1}回目チャレンジ` : '一致おめでとう！！';
