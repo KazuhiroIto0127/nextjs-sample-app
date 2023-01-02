@@ -16,7 +16,7 @@ export default function FirstPost({ allPostsData }: { allPostsData: {date: strin
 
   const laboLinks = [
     {title: '絵文字一致チャレンジ！', id: "randomEmojiChallenge", emoji: '😀 '},
-    {title: 'typescriptの勉強！', id: "2", emoji: 'typescript '},
+    {title: 'typescriptの勉強！', id: "typescriptPractice", emoji: 'typescript '},
     {title: 'ライクしよう！', id: "3", emoji: '❤️'},
   ]
 
