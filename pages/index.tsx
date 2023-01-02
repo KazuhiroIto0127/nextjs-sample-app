@@ -13,9 +13,6 @@ export default function Home({ allPostsData }: { allPostsData: {date: string, ti
       <Head>
         <title>{siteTitle}</title>
       </Head>
-      <section className={utilStyles.headingMd}>
-        <Link href="/posts/first-post" className="text-xl text-blue-500">first-post</Link>
-      </section>
 
       <HelloWorld />
 
