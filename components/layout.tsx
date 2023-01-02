@@ -34,7 +34,7 @@ export default function Layout({ children, home }: {
 
       <div className={`p-3 ${notoSansJp.className}`}>
         <Header />
-        <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
+        <main className="p-4">
           {children}
         </main>
         <Footer />
