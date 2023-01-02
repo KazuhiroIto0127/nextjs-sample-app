@@ -5,10 +5,15 @@ import Link from 'next/link';
 import React from 'react';
 import Header from './Header'
 import Footer from './Footer'
+import { Noto_Sans_JP } from '@next/font/google';
+
+const notoSansJp = Noto_Sans_JP({ weight: "400", subsets: ["japanese"] })
 
 export const siteTitle = 'Next.js Sample Website';
 
-export default function Layout({ children, home }: { children: React.ReactNode, home?: boolean}) {
+export default function Layout({ children, home }: {
+  children: React.ReactNode, home?: boolean
+}) {
   return (
     <>
       <Head>
@@ -27,7 +32,7 @@ export default function Layout({ children, home }: { children: React.ReactNode, 
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
 
-      <div className="p-3">
+      <div className={`p-3 ${notoSansJp.className}`}>
         <Header />
         <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
           {children}

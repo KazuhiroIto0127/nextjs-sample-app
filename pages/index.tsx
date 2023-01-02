@@ -15,11 +15,6 @@ export default function Home({ allPostsData }: { allPostsData: {date: string, ti
       </Head>
       <section className={utilStyles.headingMd}>
         <Link href="/posts/first-post" className="text-xl text-blue-500">first-post</Link>
-        <p>[Your Self Introduction]</p>
-        <p>
-          (This is a sample website - you’ll be building a site like this on{' '}
-          <a href="https://nextjs.org/learn">our Next.js tutorial</a>.)
-        </p>
       </section>
 
       <HelloWorld />
