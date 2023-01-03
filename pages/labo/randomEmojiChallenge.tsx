@@ -77,7 +77,7 @@ export default function randomEmojiChallenge() {
       </Head>
 
       <div className="text-center">
-        <h1 className="text-xl font-bold mb-2">絵文字一致チャレンジ！</h1>
+        <h1 className="text-2xl font-bold mb-2">絵文字一致チャレンジ！</h1>
         <span id="rewardId" />
 
         { bestScore != 0 &&

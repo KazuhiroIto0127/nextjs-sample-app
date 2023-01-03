@@ -1,26 +1,26 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFlask } from "@fortawesome/free-solid-svg-icons";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
+import styles from '@/components/layout.module.css';
 
 export default function Header() {
   return (
-    <header className="flex justify-center items-center bg-yellow-100">
+    <header className={`px-3 flex items-center justify-between ${styles.header}
+                        md:justify-start
+                        dark:text-white dark:bg-gray-800
+                      `}>
+        <FontAwesomeIcon icon={faBars}
+            className="flex-shrink-0 w-6 h-6
+                     text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-whitespace
+                       md:hidden"
+        />
         <Link href="/" className="flex justify-center items-center mr-5">
             <Image priority src="/images/profile.png"
-                    className="rounded-sm" height={50} width={50} alt="logo"/>
-            <span className={`text-2xl font-extrabold`}>omomuro.dev</span>
+                    className="rounded-sm" height={40} width={40} alt="logo"/>
+            <span className="text-xl font-bold md:text-2xl">omomuro.dev</span>
         </Link>
-        <ul className="flex gap-2">
-            <li>
-              <Link href="/labo" className=" text-blue-500 flex flex-wrap">
-                <FontAwesomeIcon icon={faFlask} className="w-4 mr-1 hover:rotate-45 transition ease-in-out" />
-                <span className="block">labo</span>
-              </Link>
-            </li>
-            <li><Link href="/posts/first-post" className="text-blue-500">first-post</Link></li>
-        </ul>
-
+        <div></div>
     </header>
   )
 }

@@ -1,5 +1,4 @@
 import Head from 'next/head';
-import Link from 'next/link'
 import LaboLink from '../components/LaboLink'
 import Layout from '../components/layout'
 import Switch from '@/components/Switch'
@@ -27,7 +26,7 @@ export default function FirstPost({ allPostsData }: { allPostsData: {date: strin
       </Head>
 
       <Layout>
-        <h1>Labo</h1>
+        <h1 className='text-2xl m-3'>ラボ</h1>
 
         <div className="grid grid-cols-auto-fit gap-4">
           {laboLinks.map((link) => (

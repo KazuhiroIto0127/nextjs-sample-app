@@ -1,36 +1,27 @@
-import Head from 'next/head';
+import Head from '@/components/Head'
 import React from 'react';
-import Header from '@/components/Header'
 import Footer from '@/components/Footer'
-
-export const siteTitle = 'Next.js Sample Website';
+import Header from '@/components/Header'
+import Sidebar from '@/components/Sidebar'
+import styles from '@/components/layout.module.css';
 
 export default function Layout({ children, home }: {
   children: React.ReactNode, home?: boolean
 }) {
   return (
     <>
-      <Head>
-        <link rel="icon" href="/favicon.ico" />
-        <meta
-          name="description"
-          content="Learn how to build a personal website using Next.js"
-        />
-        <meta
-          property="og:image"
-          content={`https://og-image.vercel.app/${encodeURI(
-            siteTitle,
-          )}.png?theme=light&md=0&fontSize=75px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg`}
-        />
-        <meta name="og:title" content={siteTitle} />
-        <meta name="twitter:card" content="summary_large_image" />
-      </Head>
+      <Head />
 
-      <Header />
-      <main className="p-4">
-        {children}
-      </main>
-      <Footer />
+      <div className={`grid w-full h-full min-h-screen ${styles.container}
+                      dark:text-white dark:bg-gray-700
+      `} >
+        <Header />
+        <Sidebar />
+        <main className={`p-3 ${styles.main}`} >
+          {children}
+        </main>
+        <Footer />
+      </div>
     </>
   )
 }

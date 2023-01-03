@@ -9,7 +9,7 @@ const zenMaruGothic = Zen_Maru_Gothic({ weight: ["400","700","900"],
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <div className={`${zenMaruGothic.className}`}>
-      <Component {...pageProps} />;
+      <Component {...pageProps} />
     </div>
   )
 }

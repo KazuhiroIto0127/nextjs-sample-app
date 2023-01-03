@@ -66,12 +66,18 @@ export default function randomEmojiChallenge() {
             ))}
         </fieldset>
         <label className="block mb-2">
-            <span className="after:content-['*'] after:ml-0.5 after:text-red-500 block text-sm font-medium text-slate-700">名前</span>
-            <input type="text" onChange={handleNameChange} className="placeholder:italic placeholder:text-slate-400 block bg-white border border-slate-300 rounded-md py-2 px-3 shadow-sm focus:ring-1" placeholder="佐藤" value={name} />
+            <span className="after:content-['*'] after:ml-0.5 after:text-red-500 block text-sm font-medium">名前</span>
+            <input type="text" onChange={handleNameChange} placeholder="佐藤" value={name}
+                   className="placeholder:italic placeholder:text-slate-400 block
+                              bg-white border border-slate-300 rounded-md py-2 px-3 shadow-sm focus:ring-1
+                              dark:text-black"/>
         </label>
         <label className="block mb-2">
-            <span className="after:content-['*'] after:ml-0.5 after:text-red-500 block text-sm font-medium text-slate-700">年齢</span>
-            <input type="number" value={old} onChange={handleOldChange} className="placeholder:italic placeholder:text-slate-400 block bg-white border border-slate-300 rounded-md py-2 px-3 shadow-sm focus:ring-1" />
+            <span className="after:content-['*'] after:ml-0.5 after:text-red-500 block text-sm font-medium">年齢</span>
+            <input type="number" value={old} onChange={handleOldChange}
+                   className="placeholder:italic placeholder:text-slate-400 block
+                              bg-white border border-slate-300 rounded-md py-2 px-3 shadow-sm focus:ring-1
+                              dark:text-black" />
         </label>
       </fieldset>
       <button
