@@ -5,8 +5,8 @@ import Header from '@/components/Header'
 import Sidebar from '@/components/Sidebar'
 import styles from '@/components/layout.module.css';
 
-export default function Layout({ children, home }: {
-  children: React.ReactNode, home?: boolean
+export default function Layout({ children }: {
+  children: React.ReactNode
 }) {
   return (
     <>
