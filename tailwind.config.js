@@ -17,9 +17,6 @@ module.exports = {
         'auto-fill': 'repeat(auto-fill, minmax(200px, 1fr))',
       },
     },
-    fontFamily:{
-      mPlusRounded: ['\'M PLUS Rounded 1c\'', 'sans-serif']
-    },
   },
   plugins: [require("tailwindcss-radix")()]
 }

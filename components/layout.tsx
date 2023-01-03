@@ -1,13 +1,7 @@
 import Head from 'next/head';
-import styles from './layout.module.css';
-import utilStyles from '../styles/utils.module.css';
-import Link from 'next/link';
 import React from 'react';
-import Header from './Header'
-import Footer from './Footer'
-import { Noto_Sans_JP } from '@next/font/google';
-
-const notoSansJp = Noto_Sans_JP({ weight: "400", subsets: ["japanese"] })
+import Header from '@/components/Header'
+import Footer from '@/components/Footer'
 
 export const siteTitle = 'Next.js Sample Website';
 
@@ -32,13 +26,11 @@ export default function Layout({ children, home }: {
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
 
-      <div className={`p-3 ${notoSansJp.className}`}>
-        <Header />
-        <main className="p-4">
-          {children}
-        </main>
-        <Footer />
-      </div>
+      <Header />
+      <main className="p-4">
+        {children}
+      </main>
+      <Footer />
     </>
   )
 }

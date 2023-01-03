@@ -1,7 +1,7 @@
 import Head from 'next/head';
-import DateFormat from '../../components/date'
-import Layout from '../../components/layout'
-import { getAllPostIds, getPostData } from '../../lib/posts'
+import DateFormat from '@/components/date'
+import Layout from '@/components/layout'
+import { getAllPostIds, getPostData } from '@/lib/posts'
 import { GetStaticProps, GetStaticPaths } from 'next';
 
 export default function Post({ postData }: { postData: { title: string, date: string, contentHtml: string }}) {

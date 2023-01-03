@@ -2,9 +2,9 @@ import Head from 'next/head';
 import Link from 'next/link'
 import LaboLink from '../components/LaboLink'
 import Layout from '../components/layout'
-import Switch from '../components/Switch'
+import Switch from '@/components/Switch'
 import { useState } from 'react';
-import { getSortedPostsData } from '../lib/posts';
+import { getSortedPostsData } from '@/lib/posts';
 import { GetStaticProps } from 'next'
 
 export default function FirstPost({ allPostsData }: { allPostsData: {date: string, title: string, id: string }[] }) {

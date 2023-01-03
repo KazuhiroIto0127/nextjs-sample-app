@@ -1,5 +1,4 @@
-import {User} from '../models/User'
-import cx from 'clsx'
+import {User} from '@/models/User'
 
 const UserCard = ({ user }: { user: User }) => {
     return (

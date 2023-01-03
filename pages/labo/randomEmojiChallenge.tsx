@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import { useEffect, useState, useMemo } from 'react';
-import Layout from '../../components/layout'
+import Layout from '@/components/layout'
 import { useReward } from 'react-rewards';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowPointer } from "@fortawesome/free-solid-svg-icons";
@@ -17,7 +17,7 @@ export default function randomEmojiChallenge() {
   const { reward, isAnimating } = useReward('rewardId', 'confetti', { "lifetime": 1000, "elementCount": 100 });
 
   const buttonText = useMemo(() => {
-    return gameClear === false ? `${challengeTotalNum+1}回目チャレンジ` : '一致おめでとう！！';
+    return gameClear === false ? `${challengeTotalNum+1}回目チャレンジ` : '🎉一致おめでとう！！🎉';
   }, [gameClear, challengeTotalNum]);
 
   const resultText = (result: boolean) => result ? '◯' : 'X'
