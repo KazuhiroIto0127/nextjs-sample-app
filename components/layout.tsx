@@ -3,7 +3,8 @@ import React, { useState } from 'react';
 import Footer from '@/components/Footer'
 import Header from '@/components/Header'
 import Sidebar from '@/components/Sidebar'
-import styles from '@/components/layout.module.css';
+import { twMerge } from 'tailwind-merge';
+import clsx from 'clsx';
 
 export default function Layout({ children }: {
   children: React.ReactNode
@@ -15,19 +16,20 @@ export default function Layout({ children }: {
     <>
       <Head />
 
-      <div className={`w-full h-full min-h-screen
-                      dark:text-white dark:bg-gray-700
-      `} >
+      <div className={twMerge(clsx(
+        'grid grid-areas-slim md:grid-areas-wide',
+        'grid-cols-slim grid-rows-slim md:grid-cols-wide md:grid-rows-wide',
+        { 'md:grid-areas-slim md:grid-cols-slim md:grid-rows-slim' : !isOpenPcSidebar },
+        'dark:text-white dark:bg-gray-700'
+      ))} >
         <Header setIsOpenSidebar={setIsOpenSidebar} setIsOpenPcSidebar={setIsOpenPcSidebar} />
-        <div className="flex">
         <Sidebar isOpenSidebar={isOpenSidebar} setIsOpenSidebar={setIsOpenSidebar}
                  isOpenPcSidebar={isOpenPcSidebar} setIsOpenPcSidebar={setIsOpenPcSidebar}
          />
-        <main className={`p-3 ${styles.main}`} >
+        <main className={`grid-in-main p-3`} >
           {children}
-          <Footer />
         </main>
-        </div>
+        <Footer />
       </div>
     </>
   )

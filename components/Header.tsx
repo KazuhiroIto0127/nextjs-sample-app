@@ -13,7 +13,8 @@ export default function Header({setIsOpenSidebar, setIsOpenPcSidebar}) {
     setIsOpenPcSidebar((prev)=>!prev)
   }
   return (
-    <header className={`z-10 px-3 flex items-center justify-between
+    <header className={`grid-in-header
+                        z-10 px-3 flex items-center justify-between
                         dark:text-white dark:bg-gray-800
                       `}>
         {/* スマホ用 */}

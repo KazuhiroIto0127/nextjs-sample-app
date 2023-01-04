@@ -1,6 +1,5 @@
 import SidebarLink from '@/components/SidebarLink';
 import { faFlask, faHome, faCat } from "@fortawesome/free-solid-svg-icons";
-import styles from '@/components/layout.module.css';
 import clsx from 'clsx';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
@@ -24,6 +23,7 @@ export default function Sidebar({isOpenSidebar, setIsOpenSidebar, isOpenPcSideba
 
       {/* サイドバー */}
       <aside className={twMerge(clsx(
+        'grid-in-sidebar',
         'w-[200px] min-w-[200px] overflow-y-auto transition-all duration-300 ease-in-out hidden',
         'md:block md:inset-auto',
         { 'hidden md:block': isOpenPcSidebar }, { 'hidden md:hidden': !isOpenPcSidebar },
