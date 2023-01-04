@@ -9,20 +9,25 @@ export default function Layout({ children }: {
   children: React.ReactNode
 }) {
   const [isOpenSidebar, setIsOpenSidebar] = useState(false)
+  const [isOpenPcSidebar, setIsOpenPcSidebar] = useState(true)
 
   return (
     <>
       <Head />
 
-      <div className={`grid w-full h-full min-h-screen ${styles.container}
+      <div className={`w-full h-full min-h-screen
                       dark:text-white dark:bg-gray-700
       `} >
-        <Header setIsOpenSidebar={setIsOpenSidebar} />
-        <Sidebar isOpenSidebar={isOpenSidebar} />
+        <Header setIsOpenSidebar={setIsOpenSidebar} setIsOpenPcSidebar={setIsOpenPcSidebar} />
+        <div className="flex">
+        <Sidebar isOpenSidebar={isOpenSidebar} setIsOpenSidebar={setIsOpenSidebar}
+                 isOpenPcSidebar={isOpenPcSidebar} setIsOpenPcSidebar={setIsOpenPcSidebar}
+         />
         <main className={`p-3 ${styles.main}`} >
           {children}
+          <Footer />
         </main>
-        <Footer />
+        </div>
       </div>
     </>
   )
