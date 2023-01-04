@@ -31,7 +31,7 @@ export default function Sidebar({isOpenSidebar, setIsOpenSidebar, isOpenPcSideba
         ))}
         aria-label="Sidebar"
       >
-          <div className="overflow-y-auto px-3 bg-gray-50 dark:bg-gray-800 h-full min-h-screen">
+          <div className="overflow-y-auto px-3 bg-gray-50 dark:bg-gray-800 h-screen md:h-[calc(100vh-50px)]">
               <div className={clsx("flex h-[50px] justify-center items-center",
                                   { 'block': isOpenSidebar }, { 'hidden': !isOpenSidebar }
               )}>
@@ -47,7 +47,7 @@ export default function Sidebar({isOpenSidebar, setIsOpenSidebar, isOpenPcSideba
                     <span className="font-bold text-sm">omomuro.dev</span>
                 </Link>
               </div>
-              <ul className="space-y-2">
+              <ul className="space-y-2 pt-2">
                   <li><SidebarLink path="/" title="ホーム" icon={faHome} /></li>
                   <li><SidebarLink path="/labo" title="ラボ" icon={faFlask} /></li>
                   <li><SidebarLink path="/posts/first-post" title="about" icon={faCat} /></li>
