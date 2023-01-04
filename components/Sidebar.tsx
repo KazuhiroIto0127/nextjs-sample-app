@@ -52,7 +52,6 @@ export default function Sidebar({isOpenSidebar, setIsOpenSidebar, isOpenPcSideba
                   <li><SidebarLink path="/labo" title="ラボ" icon={faFlask} /></li>
                   <li><SidebarLink path="/posts/first-post" title="about" icon={faCat} /></li>
               </ul>
-              <p className={twMerge(clsx("text-red-500 text-blue-500",{'text-yellow-500' : false}))}>test</p>
           </div>
       </aside>
     </>
