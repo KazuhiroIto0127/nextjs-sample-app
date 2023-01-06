@@ -19,7 +19,7 @@ export default function Sidebar() {
     <>
       {/* スマホ用のoverlay背景 */}
       <div className={clsx(
-            'fixed top-0 left-0 w-full h-full bg-gray-800 bg-opacity-70 z-30',
+            'fixed top-0 left-0 w-full h-full bg-gray-800 bg-opacity-70 z-30 md:invisible',
             { 'visible': isOpenMobileSidebar }, { 'invisible': !isOpenMobileSidebar }
       )}
            onClick={toggleSidebar}
@@ -28,15 +28,16 @@ export default function Sidebar() {
       {/* サイドバー */}
       <aside className={twMerge(clsx(
         'grid-in-sidebar',
-        'w-[200px] min-w-[200px] overflow-y-auto transition-all duration-300 ease-in-out hidden',
-        'md:block md:inset-auto',
-        { 'hidden md:block': isOpenPcSidebar }, { 'hidden md:hidden': !isOpenPcSidebar },
-        { 'block z-40 fixed top-0': isOpenMobileSidebar },
+        'w-[200px] min-w-[200px] overflow-y-auto transition-transform duration-300 ease-in-out',
+        { 'md:translate-x-[0px]    md:fixed md:top-[50px]': isOpenPcSidebar },
+        { 'md:translate-x-[-200px] md:fixed md:top-[50px]': !isOpenPcSidebar },
+        { 'translate-x-[0px] z-40 fixed top-0': isOpenMobileSidebar },
+        { 'translate-x-[-200px] z-40 fixed top-0': !isOpenMobileSidebar }
         ))}
         aria-label="Sidebar"
       >
           <div className="overflow-y-auto px-3 bg-gray-50 dark:bg-gray-800 h-screen md:h-[calc(100vh-50px)]">
-              <div className={clsx("flex h-[50px] justify-center items-center",
+              <div className={clsx("flex h-[50px] justify-center items-center md:hidden",
                                   { 'block': isOpenMobileSidebar }, { 'hidden': !isOpenMobileSidebar }
               )}>
                 <FontAwesomeIcon icon={faBars}
