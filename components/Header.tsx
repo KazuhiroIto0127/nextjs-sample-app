@@ -2,12 +2,15 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
-import styles from '@/components/layout.module.css';
-import React from 'react';
+import React, { useContext } from 'react';
+import { GlobalContext } from '@/context/global-state-provider';
 
-export default function Header({setIsOpenSidebar, setIsOpenPcSidebar}) {
+export default function Header() {
+
+  const {setIsOpenMobileSidebar, setIsOpenPcSidebar} = useContext(GlobalContext)
+
   const toggleSidebar = () => {
-    setIsOpenSidebar((prev)=>!prev)
+    setIsOpenMobileSidebar((prev)=>!prev);
   }
   const togglePcSidebar = () => {
     setIsOpenPcSidebar((prev)=>!prev)

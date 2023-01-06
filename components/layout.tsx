@@ -5,12 +5,13 @@ import Header from '@/components/Header'
 import Sidebar from '@/components/Sidebar'
 import { twMerge } from 'tailwind-merge';
 import clsx from 'clsx';
+import { useContext } from 'react';
+import { GlobalContext } from '@/context/global-state-provider';
 
 export default function Layout({ children }: {
   children: React.ReactNode
 }) {
-  const [isOpenSidebar, setIsOpenSidebar] = useState(false)
-  const [isOpenPcSidebar, setIsOpenPcSidebar] = useState(true)
+  const {isOpenPcSidebar} = useContext(GlobalContext)
 
   return (
     <>
@@ -22,10 +23,8 @@ export default function Layout({ children }: {
         { 'md:grid-areas-slim md:grid-cols-slim md:grid-rows-slim' : !isOpenPcSidebar },
         'dark:text-white dark:bg-gray-700'
       ))} >
-        <Header setIsOpenSidebar={setIsOpenSidebar} setIsOpenPcSidebar={setIsOpenPcSidebar} />
-        <Sidebar isOpenSidebar={isOpenSidebar} setIsOpenSidebar={setIsOpenSidebar}
-                 isOpenPcSidebar={isOpenPcSidebar} setIsOpenPcSidebar={setIsOpenPcSidebar}
-         />
+        <Header />
+        <Sidebar />
         <main className={`grid-in-main p-3`} >
           {children}
         </main>

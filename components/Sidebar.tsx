@@ -6,17 +6,21 @@ import { faBars } from "@fortawesome/free-solid-svg-icons";
 import Link from 'next/link';
 import Image from 'next/image';
 import { twMerge } from 'tailwind-merge';
+import React, { useContext } from 'react';
+import { GlobalContext } from '@/context/global-state-provider';
 
-export default function Sidebar({isOpenSidebar, setIsOpenSidebar, isOpenPcSidebar, setIsOpenPcSidebar}) {
+export default function Sidebar() {
+  const {isOpenMobileSidebar, setIsOpenMobileSidebar, isOpenPcSidebar} = useContext(GlobalContext)
+
   const toggleSidebar = () => {
-    setIsOpenSidebar((prev)=>!prev)
+    setIsOpenMobileSidebar((prev)=>!prev)
   }
   return (
     <>
       {/* スマホ用のoverlay背景 */}
       <div className={clsx(
             'fixed top-0 left-0 w-full h-full bg-gray-800 bg-opacity-70 z-30',
-            { 'visible': isOpenSidebar }, { 'invisible': !isOpenSidebar }
+            { 'visible': isOpenMobileSidebar }, { 'invisible': !isOpenMobileSidebar }
       )}
            onClick={toggleSidebar}
       ></div>
@@ -27,13 +31,13 @@ export default function Sidebar({isOpenSidebar, setIsOpenSidebar, isOpenPcSideba
         'w-[200px] min-w-[200px] overflow-y-auto transition-all duration-300 ease-in-out hidden',
         'md:block md:inset-auto',
         { 'hidden md:block': isOpenPcSidebar }, { 'hidden md:hidden': !isOpenPcSidebar },
-        { 'block z-40 fixed top-0': isOpenSidebar },
+        { 'block z-40 fixed top-0': isOpenMobileSidebar },
         ))}
         aria-label="Sidebar"
       >
           <div className="overflow-y-auto px-3 bg-gray-50 dark:bg-gray-800 h-screen md:h-[calc(100vh-50px)]">
               <div className={clsx("flex h-[50px] justify-center items-center",
-                                  { 'block': isOpenSidebar }, { 'hidden': !isOpenSidebar }
+                                  { 'block': isOpenMobileSidebar }, { 'hidden': !isOpenMobileSidebar }
               )}>
                 <FontAwesomeIcon icon={faBars}
                   className="flex-shrink-0 w-6 h-6 mr-2
