@@ -12,7 +12,7 @@ export default function Layout({ children }: {
   children: React.ReactNode
 }) {
   const {isOpenPcSidebar} = useContext(GlobalContext)
-
+  const [isOpenMobileSidebar, setIsOpenMobileSidebar] = useState<boolean>(false)
   return (
     <>
       <Head />
@@ -23,8 +23,8 @@ export default function Layout({ children }: {
         { 'md:grid-areas-slim md:grid-cols-slim md:grid-rows-slim' : !isOpenPcSidebar },
         'dark:text-white dark:bg-gray-700'
       ))} >
-        <Header />
-        <Sidebar />
+        <Header setIsOpenMobileSidebar={setIsOpenMobileSidebar} />
+        <Sidebar isOpenMobileSidebar={isOpenMobileSidebar} setIsOpenMobileSidebar={setIsOpenMobileSidebar} />
         <main className={`grid-in-main p-3`} >
           {children}
         </main>

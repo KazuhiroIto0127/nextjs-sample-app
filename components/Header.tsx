@@ -5,9 +5,9 @@ import { faBars } from "@fortawesome/free-solid-svg-icons";
 import React, { useContext } from 'react';
 import { GlobalContext } from '@/context/global-state-provider';
 
-export default function Header() {
+export default function Header({setIsOpenMobileSidebar}) {
 
-  const {setIsOpenMobileSidebar, setIsOpenPcSidebar} = useContext(GlobalContext)
+  const { setIsOpenPcSidebar } = useContext(GlobalContext)
 
   const toggleSidebar = () => {
     setIsOpenMobileSidebar((prev)=>!prev);

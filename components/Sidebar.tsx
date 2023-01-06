@@ -9,8 +9,8 @@ import { twMerge } from 'tailwind-merge';
 import React, { useContext } from 'react';
 import { GlobalContext } from '@/context/global-state-provider';
 
-export default function Sidebar() {
-  const {isOpenMobileSidebar, setIsOpenMobileSidebar, isOpenPcSidebar} = useContext(GlobalContext)
+export default function Sidebar({isOpenMobileSidebar, setIsOpenMobileSidebar}) {
+  const { isOpenPcSidebar } = useContext(GlobalContext)
 
   const toggleSidebar = () => {
     setIsOpenMobileSidebar((prev)=>!prev)
