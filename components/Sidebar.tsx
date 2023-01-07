@@ -19,7 +19,7 @@ export default function Sidebar({isOpenMobileSidebar, setIsOpenMobileSidebar}) {
     <>
       {/* スマホ用のoverlay背景 */}
       <div className={clsx(
-            'fixed top-0 left-0 w-full h-full bg-gray-800 bg-opacity-70 z-30 md:invisible',
+            'fixed top-0 left-0 w-full h-full bg-gray-800 bg-opacity-70 z-30 md:invisible backdrop-blur-sm',
             { 'visible': isOpenMobileSidebar }, { 'invisible': !isOpenMobileSidebar }
       )}
            onClick={toggleSidebar}

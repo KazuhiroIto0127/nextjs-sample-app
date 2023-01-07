@@ -4,11 +4,13 @@ import Layout from '@/components/layout'
 import { getSortedPostsData } from '@/lib/posts';
 import HelloWorld from '@/components/HelloWorld'
 import { GetStaticProps } from 'next'
+import { ThemeChanger } from '@/components/SwitchTheme'
 
 export default function Home({ allPostsData }: { allPostsData: {date: string, title: string, id: string }[] }) {
   return (
     <Layout>
       <HelloWorld />
+      <ThemeChanger />
 
       <section className="m-3">
         <h2 className="text-2xl">Blog</h2>
