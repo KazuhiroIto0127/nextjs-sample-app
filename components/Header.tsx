@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import React, { useContext } from 'react';
 import { GlobalContext } from '@/context/global-state-provider';
+import { ThemeChanger } from '@/components/SwitchTheme'
 
 export default function Header({setIsOpenMobileSidebar}) {
 
@@ -41,7 +42,7 @@ export default function Header({setIsOpenMobileSidebar}) {
                     className="rounded-sm" height={40} width={40} alt="logo"/>
             <span className="text-xl font-bold">omomuro.dev</span>
         </Link>
-        <div></div>
+        <ThemeChanger />
     </header>
   )
 }
