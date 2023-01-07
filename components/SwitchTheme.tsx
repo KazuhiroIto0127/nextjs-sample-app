@@ -18,12 +18,10 @@ export const ThemeChanger = () => {
             <Popover.Root>
                 <Popover.Trigger>
                     <button>
-                        <FontAwesomeIcon icon={ resolvedTheme === 'light' ? faSun : faMoon }
-                            className={clsx('w-5',
-                                { 'text-red-400': resolvedTheme === 'light'},
-                                { 'text-yellow-400': resolvedTheme === 'dark'},
-                        )}>
-                        </FontAwesomeIcon>
+                        { resolvedTheme === 'light'
+                            ? <FontAwesomeIcon icon={faSun} className="text-red-400 w-5" />
+                            : <FontAwesomeIcon icon={faMoon} className="text-yellow-400 w-5" />
+                        }
                     </button>
                 </Popover.Trigger>
                 <Popover.Portal>
